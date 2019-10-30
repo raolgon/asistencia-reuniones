@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald&display=swap" rel="stylesheet">
+    <title>Asistencia Congregación "El Tesoro"</title>
+</head>
+<body>
+    <section class="app">
+            <h1 id="date"></h1>
+
+        <div class="card">
+            <h2>Asistencia</h2>
+
+            <p>Pon la fecha de la reunión:</p>
+            <label for="fecha_texto">Día de la reunión:</label>
+            <input type="date" name="fecha" id="fecha">
+            <br/>
+
+            <p>Pon la asistencia de la reunión:</p>
+            <label for="asistencia_total">Asistencia:</label>
+            <input type="number" name="asistencia" id="asistencia" max="999" min="1" placeholder="Anota la asistencia aqui">
+            <br/>
+
+            <input type="submit" id="btn_enviar" value="Enviar">
+        </div>
+        <div class="card_asistencia">
+            <div class="wrapper_fecha">
+                <div class="fecha_reunion">
+                    <p>La asistencia el dia</p>
+                    <p class="diaSemana" id="diaSemana"></p>
+                    <p class="dia" id="dia"></p>
+                    <p>de</p>
+                    <p class="mes" id="mes"></p>
+                    <p>del</p>
+                    <p class="year" id="year"></p>
+                    <p>es de:</p>
+                </div>
+            </div>
+            <div class="wrapper_asistencia"></div>
+        </div>
+    </section>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+html {
+    box-sizing: border-box;
+  }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body {
+    font-family: 'Open Sans', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    position: relative;
+    text-align: center;
+}
+
+.card {
+    border: 2px solid black;
+    width: 500px;
+    padding-bottom: 20px;
+}
+
+.card h2 {
+    font-family: 'Oswald', serif;
+}
+
+.card_asistencia {
+    border: 2px solid black;
+    margin-top: 20px;
+}
+
+.wrapper_fecha p {
+    display: inline-block;
+}
+
+/*Para ver en pantallas menores a 490px*/
+@media only screen and(max-width: 600px){
+    .card {
+        width: 90%;
+    }
+}
