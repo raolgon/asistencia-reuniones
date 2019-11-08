@@ -2,10 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="img/treasure.png" type="image/png">
     <title>Asistencia Congregación "El Tesoro"</title>
 </head>
 <body>
@@ -13,16 +14,18 @@
             <h1 id="date"></h1>
 
         <div class="card">
-            <h2>Asistencia</h2>
+            <header>
+                <h2>Asistencia</h2>
+            </header>
 
             <p>Pon la fecha de la reunión:</p>
-            <label for="fecha_texto">Día de la reunión:</label>
-            <input type="date" name="fecha" id="fecha">
+            <label id="fecha_texto">Día de la reunión:</label>
+            <input type="date" name="fecha" id="fecha" max="" required>
             <br/>
 
             <p>Pon la asistencia de la reunión:</p>
-            <label for="asistencia_total">Asistencia:</label>
-            <input type="number" name="asistencia" id="asistencia" max="999" min="1" placeholder="Anota la asistencia aqui">
+            <label id="asistencia_total">Asistencia:</label>
+            <input type="number" name="asistencia" id="asistencia" max="999" min="1" required>
             <br/>
 
             <input type="submit" id="btn_enviar" value="Enviar">

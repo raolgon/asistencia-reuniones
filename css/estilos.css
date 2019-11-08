@@ -1,5 +1,11 @@
+:root {
+    --ancho_card: 500px;
+}
+
 html {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
 *, *:before, *:after {
@@ -8,8 +14,6 @@ html {
 
 body {
     font-family: 'Open Sans', serif;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,9 +24,12 @@ body {
     text-align: center;
 }
 
+.card, .card_asistencia {
+    width: var(--ancho_card);
+}
+
 .card {
     border: 2px solid black;
-    width: 500px;
     padding-bottom: 20px;
 }
 
@@ -33,15 +40,26 @@ body {
 .card_asistencia {
     border: 2px solid black;
     margin-top: 20px;
+    visibility: hidden;
 }
 
 .wrapper_fecha p {
     display: inline-block;
 }
 
+.wrapper_asistencia {
+    font-family: 'Oswald';
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
 /*Para ver en pantallas menores a 490px*/
-@media only screen and(max-width: 600px){
-    .card {
-        width: 90%;
+@media only screen and (max-width: 600px){
+    body {
+        background: red;
+    }
+    .card, .card_asistencia {
+        width: 100%;
     }
 }

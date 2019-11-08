@@ -1,39 +1,31 @@
 let asistenciaTotal = document.querySelector('#asistencia');
+//Para que el date picker muestre la fecha actual por defecto
+let fecha = new Date();
+    document.querySelector('#fecha').valueAsDate = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate(), 12);
+    document.querySelector('#fecha').setAttribute('max', fecha);
 
 document.querySelector('#btn_enviar').addEventListener("click", botonEnviar);
 
+//Funciones para mostras la asistencia y enviarla al servidor(TODO)
 function botonEnviar(){
     console.log(asistenciaTotal.value);
-    console.log(fecha.value);
 
-    document.querySelector(".card_asistencia").innerHTML = "La asistencia es de: " + asistenciaTotal.value + " en " + fecha.value;
-}
-
-//Para que salga la fecha actual en el input date en el documento (lo copie de StackOverflow no me maten ;-;)
-
-let fecha = document.querySelector('#fecha');
-
-window.onload = function(){
-    var fechaActual = new Date(); //Fecha actual
-    var mes = fechaActual.getMonth()+1; //obteniendo mes
-    var dia = fechaActual.getDate(); //obteniendo dia
-    var ano = fechaActual.getFullYear(); //obteniendo año
-    if(dia<10)
-      dia='0'+dia; //agrega cero si el menor de 10
-    if(mes<10)
-      mes='0'+mes //agrega cero si el menor de 10
-    document.getElementById('fecha').value=ano+"-"+mes+"-"+dia;
+    document.querySelector('.card_asistencia').style.visibility = 'visible';
+    fechaReunion();
+    document.querySelector(".wrapper_asistencia").textContent = asistenciaTotal.value;
 }
 
 //Funciones para mostrar la fecha en card_asistencia
 
-function fechaReunion() {
-    var actualizarFecha = function(){
-        var fechaReunion = new Date(),
-            diaSemana = fechaReunion.getDay(),
-            dia = fechaReunion.getDate(),
-            mes = fechaReunion.getMonth(),
-            year = fechaReunion.getFullYear();
+function fechaReunion(){
+    let actualizarFecha = function(){
+            fechaInput = document.querySelector('#fecha').value,
+            fechaActual = new Date(fechaInput),
+            console.log(fechaActual),
+            diaSemana = fechaActual.getDay()+1,
+            dia = fechaActual.getDate()+1,
+            mes = fechaActual.getMonth(),
+            year = fechaActual.getFullYear();
 
         var pDiaSemana = document.querySelector('#diaSemana'),
             pDia = document.querySelector('#dia'),
@@ -49,10 +41,10 @@ function fechaReunion() {
         pMes.textContent = meses[mes];
 
         pYear.textContent = year;
-    };
+    }
     actualizarFecha();
 }
 
-fechaReunion();
+
 
 
