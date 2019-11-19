@@ -1,5 +1,8 @@
 :root {
     --ancho_card: 500px;
+    --color_primario: #242423;
+    --color_secundario: #333533;
+    --bg_gradient_body: linear-gradient(0deg, rgba(36,36,37,1) 0%, rgba(51,53,51,1) 100%);;
 }
 
 html {
@@ -16,7 +19,10 @@ body {
     font-family: 'Open Sans', serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
+    height: 100vh;
+    background: var(--bg_gradient_body);
+    overflow: hidden;
 }
 
 .app {
@@ -26,20 +32,24 @@ body {
 
 .card, .card_asistencia {
     width: var(--ancho_card);
+    border-radius: 15px 15px;
+    border: 0px solid #000000;
+    color: var(--color_primario);
+    box-shadow: 0px 13px 17px 5px rgba(0,0,0,1);
+    background: linear-gradient(45deg, rgba(245,203,92,1) 0%, rgba(207,219,213,1) 100%);
 }
 
 .card {
-    border: 2px solid black;
     padding-bottom: 20px;
 }
 
 .card h2 {
     font-family: 'Oswald', serif;
+    color: var(--color_secundario);
 }
 
 .card_asistencia {
-    border: 2px solid black;
-    margin-top: 20px;
+    margin-top: 40px;
     visibility: hidden;
 }
 
@@ -49,17 +59,16 @@ body {
 
 .wrapper_asistencia {
     font-family: 'Oswald';
-    font-size: 26px;
+    font-size: 3em;
     font-weight: bold;
     letter-spacing: 4px;
+    color: var(--color_secundario);
 }
 
 /*Para ver en pantallas menores a 490px*/
 @media only screen and (max-width: 600px){
-    body {
-        background: red;
-    }
     .card, .card_asistencia {
-        width: 100%;
+       height: auto;
+       width: auto;
     }
 }
