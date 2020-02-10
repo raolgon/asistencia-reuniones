@@ -2,7 +2,9 @@
     --ancho_card: 500px;
     --color_primario: #242423;
     --color_secundario: #333533;
-    --bg_gradient_body: linear-gradient(0deg, rgba(36,36,37,1) 0%, rgba(51,53,51,1) 100%);;
+    --bg_gradient_body: linear-gradient(180deg, rgba(11, 40, 56, 0.705) 0%, #011627 100%);
+    --bg_card: #0B3444;
+    --color_texto: #D4D8DC;
 }
 
 html {
@@ -34,9 +36,9 @@ body {
     width: var(--ancho_card);
     border-radius: 15px 15px;
     border: 0px solid #000000;
-    color: var(--color_primario);
-    box-shadow: 0px 13px 17px 5px rgba(0,0,0,1);
-    background: linear-gradient(45deg, rgba(245,203,92,1) 0%, rgba(207,219,213,1) 100%);
+    color: var(--color_texto);
+    box-shadow: 0px 10px 10px 2px rgba(0,0,0,1);
+    background: var(--bg_card);
 }
 
 .card {
@@ -45,7 +47,7 @@ body {
 
 .card h2 {
     font-family: 'Oswald', serif;
-    color: var(--color_secundario);
+    color: var(--color_texto);
 }
 
 .card_asistencia {
@@ -62,7 +64,8 @@ body {
     font-size: 3em;
     font-weight: bold;
     letter-spacing: 4px;
-    color: var(--color_secundario);
+    color: var(--color_texto);
+    text-shadow: 3px 6px 4px rgba(0, 0, 0, 0.7);
 }
 
 /*Para ver en pantallas menores a 490px*/
