@@ -1,6 +1,6 @@
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
-var server = require('./modules/server');
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
+const server = require('./modules/server');
 server.create(http, url, fs);
-console.log('El servidor esta funcionando correctamente en https://localhost:4000/');
+console.log('El servidor esta funcionando correctamente en http://localhost:4000/');
