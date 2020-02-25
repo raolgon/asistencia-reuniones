@@ -1,6 +1,8 @@
-const http = require('http');
-const url = require('url');
-const fs = require('fs');
-const server = require('./modules/server');
-server.create(http, url, fs);
-console.log('El servidor esta funcionando correctamente en http://localhost:4000/');
+const express = require('express');
+const app = express();
+
+app.use(express.static(__dirname + '/public'))
+
+app.listen(4000, function () {
+  console.log('Example app listening on port 4000!');
+});
