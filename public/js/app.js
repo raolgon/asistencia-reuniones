@@ -1,10 +1,10 @@
 let asistenciaTotal = document.querySelector('#asistencia');
 //Para que el date picker muestre la fecha actual por defecto
-let fecha = new Date();
-    document.querySelector('#fecha').valueAsDate = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate(), 12);
-    document.querySelector('#fecha').setAttribute('max', fecha);
 
+//let date = new Date()
+let currentDate = document.querySelector('#fecha').valueAsDate = new Date()
 document.querySelector('#btn_enviar').addEventListener("click", botonEnviar);
+console.log(currentDate)
 
 //Funciones para mostras la asistencia y enviarla al servidor(TODO)
 function botonEnviar(){
@@ -19,11 +19,11 @@ function botonEnviar(){
 
 function fechaReunion(){
     let actualizarFecha = function(){
-            fechaInput = document.querySelector('#fecha').value,
+            fechaInput = currentDate,
             fechaActual = new Date(fechaInput),
             console.log(fechaActual),
-            diaSemana = fechaActual.getDay()+1,
-            dia = fechaActual.getDate()+1,
+            diaSemana = fechaActual.getDay(),
+            dia = fechaActual.getDate(),
             mes = fechaActual.getMonth(),
             year = fechaActual.getFullYear();
 
