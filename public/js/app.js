@@ -1,33 +1,41 @@
-let asistenciaTotal = document.querySelector('#asistencia');
-//Para que el date picker muestre la fecha actual por defecto
+//Variables para la asistencia
+let totalAssistence = document.querySelector('#asistencia');
 
-//let date = new Date()
-let currentDate = document.querySelector('#fecha').valueAsDate = new Date()
-document.querySelector('#btn_enviar').addEventListener("click", botonEnviar);
-console.log(currentDate)
+console.log(moment().format('DD MM YYYY'))
+//Variables y funciones para la fecha usando moment.js
+let inputDate;
+let dateEntered;
+document.querySelector('#fecha').addEventListener('change', function() {
+    inputDate = this.value;
+    dateEntered = moment(inputDate).format();
+    console.log(inputDate); //e.g. 2015-11-13
+    console.log(dateEntered); //e.g. 09 March 2020
+    return dateEntered;
+});
+
+//Mostrar la fecha actual por defecto
+document.querySelector('#fecha').value = moment().format('YYYYY-MM-DD')
 
 //Funciones para mostras la asistencia y enviarla al servidor(TODO)
-function botonEnviar(){
-    console.log(asistenciaTotal.value);
-
+document.querySelector('#btn_enviar').addEventListener('click', function(){
     document.querySelector('.card_asistencia').style.visibility = 'visible';
     fechaReunion();
-    document.querySelector(".wrapper_asistencia").textContent = asistenciaTotal.value;
-}
+    document.querySelector('.wrapper_asistencia').textContent = totalAssistence.value;
+    console.log(totalAssistence.value);
+});
 
-//Funciones para mostrar la fecha en card_asistencia
+//Funciones para mostrar la fecha en card_asistencia usando moment.js
 
 function fechaReunion(){
     let actualizarFecha = function(){
-            fechaInput = currentDate,
-            fechaActual = new Date(fechaInput),
-            console.log(fechaActual),
-            diaSemana = fechaActual.getDay(),
-            dia = fechaActual.getDate(),
-            mes = fechaActual.getMonth(),
-            year = fechaActual.getFullYear();
+            fechaInput = dateEntered,
+            console.log(fechaInput),
+            diaSemana = moment(fechaInput).day(),
+            dia = moment(fechaInput).date(),
+            mes = moment(fechaInput).month(),
+            year = moment(fechaInput).year()
 
-        var pDiaSemana = document.querySelector('#diaSemana'),
+            pDiaSemana = document.querySelector('#diaSemana'),
             pDia = document.querySelector('#dia'),
             pMes = document.querySelector('#mes'),
             pYear = document.querySelector('#year');
