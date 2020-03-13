@@ -1,23 +1,20 @@
+let inputDate;
+let dateEntered;
+moment().locale('es')
 //Variables para la asistencia
 let totalAssistence = document.querySelector('#asistencia');
 
-console.log(moment().format('DD MM YYYY'))
 //Variables y funciones para la fecha usando moment.js
-let inputDate;
-let dateEntered;
 document.querySelector('#fecha').addEventListener('change', function() {
     inputDate = this.value;
     dateEntered = moment(inputDate).format();
     console.log(inputDate); //e.g. 2015-11-13
     console.log(dateEntered); //e.g. 09 March 2020
     return dateEntered;
-});
-
-//Mostrar la fecha actual por defecto
-document.querySelector('#fecha').value = moment().format('YYYYY-MM-DD')
+})
 
 //Funciones para mostras la asistencia y enviarla al servidor(TODO)
-document.querySelector('#btn_enviar').addEventListener('click', function(){
+document.querySelector('#btn_send').addEventListener('click', function(){
     document.querySelector('.card_asistencia').style.visibility = 'visible';
     fechaReunion();
     document.querySelector('.wrapper_asistencia').textContent = totalAssistence.value;

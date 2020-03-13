@@ -68,6 +68,38 @@ body {
     text-shadow: 3px 6px 4px rgba(0, 0, 0, 0.7);
 }
 
+/*Estilos para el formulario e inputs*/
+.date, .assistence {
+    width: 200px;
+    margin: 10px 0;
+}
+
+.btn_send {
+	background:var(--bg_gradient_body);
+	background-color:#599bb3;
+	border-radius:10px;
+	border:1px solid var(--color_primario);
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'Open Sans', serif;
+	font-size:16px;
+    font-weight:bold;
+    height: auto;
+    padding:13px 32px;
+    letter-spacing: 2pt;
+    text-decoration:none;
+	text-shadow:0px 0px 0px #3d768a;
+}
+.btn_send:hover {
+	background: linear-gradient(top, rgba(70,129,163,1) 0%, rgba(57,92,117,1) 100%);
+	background-color:#408c99;
+}
+.btn_send:active {
+	position:relative;
+	top:1px;
+}
+
 /*Para ver en pantallas menores a 490px*/
 @media only screen and (max-width: 600px){
     .card, .card_asistencia {
