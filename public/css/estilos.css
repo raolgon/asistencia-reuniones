@@ -1,5 +1,5 @@
 :root {
-    --ancho_card: 500px;
+    --ancho_card: 300px;
     --color_primario: #242423;
     --color_secundario: #333533;
     --bg_gradient_body: linear-gradient(180deg, rgba(11, 40, 56, 0.705) 0%, #011627 100%);
@@ -19,17 +19,29 @@ html {
 
 body {
     font-family: 'Open Sans', serif;
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    height: 100vh;
     background: var(--bg_gradient_body);
-    overflow: hidden;
+    height: auto;
+    /* overflow: hidden; */
 }
 
 .app {
+    max-width: 1254px;
+    width: 95%;
     position: relative;
     text-align: center;
+}
+
+.app h1 {
+    color: var(--color_texto);
+}
+
+.wrapper_main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    align-content: start
 }
 
 .card, .card_asistencia {
@@ -42,7 +54,9 @@ body {
 }
 
 .card {
-    padding-bottom: 20px;
+    height: 300px;
+    padding-bottom: 10px;
+    flex: 0 0 auto;
 }
 
 .card h2 {
@@ -51,20 +65,21 @@ body {
 }
 
 .card_asistencia {
-    margin-top: 40px;
-    visibility: hidden;
+    flex: 0 0 auto;
+    height: 200px;
 }
 
-.wrapper_fecha p {
+.wrapper_card_assistence {
     display: inline-block;
 }
 
 .wrapper_asistencia {
+    color: var(--color_texto);
     font-family: 'Oswald';
     font-size: 3em;
     font-weight: bold;
+    height: auto;
     letter-spacing: 4px;
-    color: var(--color_texto);
     text-shadow: 3px 6px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -86,7 +101,7 @@ body {
 	font-size:16px;
     font-weight:bold;
     height: auto;
-    padding:13px 32px;
+    padding:7px 25px;
     letter-spacing: 2pt;
     text-decoration:none;
 	text-shadow:0px 0px 0px #3d768a;
