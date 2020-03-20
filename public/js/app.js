@@ -8,6 +8,7 @@ class Assistence {
     }
 }
 
+//Clases para la interfaz del las "card"
 class UI {
     createCard(card){
         const wrapperCard = document.querySelector('.wrapper_card_assistence')
@@ -16,6 +17,8 @@ class UI {
         <div class="card_asistencia">
             <div class="fecha_reunion">${card.date}</div>
             <div class="wrapper_asistencia">${card.assistence}</div>
+
+            <a href="#"><img src="./img/delete.png" alt="delete" name="delete" class="delete_icon"></a>
         </div>
         `
         wrapperCard.appendChild(element)
@@ -23,6 +26,16 @@ class UI {
 
     resetForm(){
         document.querySelector('.submit_form').reset()
+    }
+
+    deleteCard(element){
+        if(element.name === 'delete'){
+            element.parentElement.parentElement.remove()
+            Toast.fire({
+                icon: 'warning',
+                title: 'Asistencia eliminada correctamente'
+            })
+        }
     }
 }
 
@@ -38,52 +51,20 @@ document.querySelector('#fecha').addEventListener('change', function() {
     return dateEntered;
 })
 
-//Funciones para mostras la asistencia y enviarla al servidor(TODO)
-// document.querySelector('#btn_send').addEventListener('click', function(){
-//     if(totalAssistence.value === 0){
-//         Swal.fire({
-//             title: '!Error¡',
-//             text: 'Necesitas poner la asistencia',
-//             icon: 'error',
-//             confirmButtonText: 'Cool'
-//           })
-//     } else {
-//     document.querySelector('.card_asistencia').style.visibility = 'visible';
-//     fechaReunion();
-//     document.querySelector('.wrapper_asistencia').textContent = totalAssistence.value;
-//     console.log(totalAssistence.value);
-//     }
-// });
+//Funciones para los mensajes de alerta esquina superior derecha
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
 
-//Funciones para mostrar la fecha en card_asistencia usando moment.js
-
-// function fechaReunion(){
-//     let actualizarFecha = function(){
-//             fechaInput = dateEntered,
-//             console.log(fechaInput),
-//             diaSemana = moment(fechaInput).day(),
-//             dia = moment(fechaInput).date(),
-//             mes = moment(fechaInput).month(),
-//             year = moment(fechaInput).year()
-
-//             pDiaSemana = document.querySelector('#diaSemana'),
-//             pDia = document.querySelector('#dia'),
-//             pMes = document.querySelector('#mes'),
-//             pYear = document.querySelector('#year');
-
-//         var semana = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
-//         pDiaSemana.textContent = semana[diaSemana];
-
-//         pDia.textContent = dia;
-
-//         var meses =['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-//         pMes.textContent = meses[mes];
-
-//         pYear.textContent = year;
-//     }
-//     actualizarFecha();
-// }
-
+//Funciones para el envio y validacion de las cards
 document.querySelector('.submit_form').addEventListener('submit', function(e){
     const date = dateEntered
     const assistence = document.querySelector('#asistencia').value;
@@ -94,16 +75,25 @@ document.querySelector('.submit_form').addEventListener('submit', function(e){
     //Crear nueva UI
     const ui = new UI()
 
+    //Alertas
+    if(date === '' || assistence === ''){
+        alert('Si funciona esta madre!')
+    }
+
     //Salvar la asistencia
     ui.createCard(card)
+    Toast.fire({
+        icon: 'success',
+        title: 'Datos enviados correctamente'
+      })
     ui.resetForm()
 
-    //Prevenir comportamiento por defecto del formuario
     e.preventDefault();
 })
 
 document.querySelector('.wrapper_card_assistence').addEventListener('click', function(e){
     const ui = new UI()
+
+    ui.deleteCard(e.target)
     e.preventDefault()
 })
-

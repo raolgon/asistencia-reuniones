@@ -20,8 +20,7 @@ html {
 body {
     font-family: 'Open Sans', serif;
     background: var(--bg_gradient_body);
-    height: auto;
-    /* overflow: hidden; */
+    height: 100vh;
 }
 
 .app {
@@ -81,6 +80,18 @@ body {
     height: auto;
     letter-spacing: 4px;
     text-shadow: 3px 6px 4px rgba(0, 0, 0, 0.7);
+}
+
+.delete_icon {
+    position: relative;
+    top: 70px;
+    left: -115px;
+}
+
+.edit_icon {
+    position: relative;
+    top: 70px;
+    left: 115px;
 }
 
 /*Estilos para el formulario e inputs*/
